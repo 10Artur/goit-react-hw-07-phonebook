@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+export const ContactsContainer = styled.div `
+  width: 600px;
+  margin: 34px auto;
+`;
+
 export const ContactsListItems = styled.ul `
   display: grid;
   margin-top: 30px;
