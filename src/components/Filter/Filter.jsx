@@ -40,9 +40,9 @@ export const Filter = () => {
   const filter = useSelector(selectFilter);
 
   const handleInputChange = evt => {
-    const contacrFind = evt.target.value;
+    const contacToFind = evt.target.value;
 
-    dispatch(setFilter(contacrFind));
+    dispatch(setFilter(contacToFind));
   };
 
   return (

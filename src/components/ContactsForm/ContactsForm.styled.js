@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Form, Field, ErrorMessage } from 'formik';
+import { PatternFormat } from 'react-number-format';
 
 export const ContactsForm = styled(Form)
 `
@@ -18,6 +19,22 @@ export const ContactsLabel = styled.label `
 `;
 
 export const ContactsField = styled(Field)
+`
+  width: 250px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #555;
+  outline: none;
+
+  &:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+`;
+
+export const PatterFormatStyle = styled(PatternFormat)
 `
   width: 250px;
   padding: 10px;
