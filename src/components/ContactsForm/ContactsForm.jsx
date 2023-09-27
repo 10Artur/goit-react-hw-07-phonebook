@@ -6,15 +6,15 @@ import {
   ContactsForm,
   ContactsLabel,
   ContactsBtn,
+  PatterFormatStyle,
 } from './ContactsForm.styled';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/operations';
-import { PatternFormat } from 'react-number-format';
 
 export const ContactForm = () => {
   const ContactsFormSchema = Yup.object().shape({
     name: Yup.string().required('Name is required!'),
-    number: Yup.string().min(10).max(20).required('Number is required!'),
+    number: Yup.string().min(15).max(20).required('Number is required!'),
   });
 
   const dispatch = useDispatch();
@@ -59,7 +59,7 @@ export const ContactForm = () => {
           Number
           <Field name="number">
             {({ field, form }) => (
-              <PatternFormat
+              <PatterFormatStyle
                 format="+380 (##) ## ## ###"
                 allowEmptyFormatting
                 mask="_"
