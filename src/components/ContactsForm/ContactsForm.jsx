@@ -8,8 +8,9 @@ import {
   ContactsBtn,
   PatterFormatStyle,
 } from './ContactsForm.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/operations';
+import { selectContacts } from 'redux/selectors';
 
 export const ContactForm = () => {
   const ContactsFormSchema = Yup.object().shape({
@@ -18,6 +19,7 @@ export const ContactForm = () => {
   });
 
   const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
 
   const handleSubmit = (values, action) => {
     const newContact = {
@@ -25,7 +27,14 @@ export const ContactForm = () => {
       phone: values.number,
     };
 
-    dispatch(addContact(newContact));
+    const handleAddContact = () => dispatch(addContact(newContact));
+
+    const overlap = contacts.map(({ name }) => name).includes(values.name);
+
+    overlap
+      ? alert(`${values.name} is already in contacts`)
+      : handleAddContact();
+
     action.resetForm();
   };
 
